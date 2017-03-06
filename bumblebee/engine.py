@@ -33,6 +33,8 @@ class Module(object):
         if widgets:
             self._widgets = widgets if isinstance(widgets, list) else [widgets]
 
+        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE, cmd=self.toggle_collapse)
+
     def widgets(self):
         """Return the widgets to draw for this module"""
         return self._widgets
@@ -63,6 +65,14 @@ class Module(object):
         if value > float(self.parameter("warning", warn)):
             return "warning"
         return None
+
+    def toggle_collapse(self, widget):
+        for w in self.widgets():
+            if w.collapsed:
+                w.collapsed = False
+            else:
+                w.collapsed = True
+
 
 class Engine(object):
     """Engine for driving the application

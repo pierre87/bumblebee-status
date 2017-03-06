@@ -7,7 +7,7 @@
 	"time": { "prefix": "" },
 	"memory": { "prefix": "" },
 	"cpu": { "prefix": "" },
-	"disk": { "prefix": "" },
+	"disk": { "prefix": "\uf07c" },
 	"dnf": { "prefix": "" },
 	"brightness": { "prefix": "" },
 	"load": { "prefix": "" },
@@ -39,7 +39,7 @@
 		"unmuted": { "prefix": "" }
 	},
   "kernel": {
-    "prefix": "\uf17c"
+    "prefix": ""
   },
 	"nic": {
 		"wireless-up": { "prefix": "" },

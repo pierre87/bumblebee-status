@@ -20,8 +20,8 @@ class Module(bumblebee.engine.Module):
             bumblebee.output.Widget(full_text=self.memory_usage)
         )
         self._mem = psutil.virtual_memory()
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="gnome-system-monitor")
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="gnome-system-monitor")
 
     def memory_usage(self, widget):
         used = self._mem.total - self._mem.available

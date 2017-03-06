@@ -24,8 +24,8 @@ class Module(bumblebee.engine.Module):
             self._cpus = multiprocessing.cpu_count()
         except multiprocessing.NotImplementedError as e:
             self._cpus = 1
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="gnome-system-monitor")
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="gnome-system-monitor")
 
     def load(self, widget):
         return "{:.02f}/{:.02f}/{:.02f}".format(

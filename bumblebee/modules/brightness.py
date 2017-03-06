@@ -21,7 +21,7 @@ class Module(bumblebee.engine.Module):
         )
         self._brightness = 0
 
-        step = self.parameter("step", 2)
+        step = self.parameter("step", 5)
 
         engine.input.register_callback(self, button=bumblebee.input.WHEEL_UP,
             cmd="xbacklight +{}%".format(step))

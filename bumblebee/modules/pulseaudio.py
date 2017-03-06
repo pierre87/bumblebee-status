@@ -35,18 +35,18 @@ class Module(bumblebee.engine.Module):
             { "expr": "Volume:", "callback": self.getvolume },
         ]
 
-        engine.input.register_callback(self, button=bumblebee.input.RIGHT_MOUSE, cmd="pavucontrol")
+        # engine.input.register_callback(self, button=bumblebee.input.RIGHT_MOUSE, cmd="pavucontrol")
 
-        events = [
-            { "type": "mute", "action": "toggle", "button": bumblebee.input.LEFT_MOUSE },
-            { "type": "volume", "action": "+2%", "button": bumblebee.input.WHEEL_UP },
-            { "type": "volume", "action": "-2%", "button": bumblebee.input.WHEEL_DOWN },
-        ]
+        # events = [
+        #     { "type": "mute", "action": "toggle", "button": bumblebee.input.LEFT_MOUSE },
+        #     { "type": "volume", "action": "+2%", "button": bumblebee.input.WHEEL_UP },
+        #     { "type": "volume", "action": "-2%", "button": bumblebee.input.WHEEL_DOWN },
+        # ]
 
-        for event in events:
-            engine.input.register_callback(self, button=event["button"],
-                cmd="pactl set-{}-{} @DEFAULT_{}@ {}".format(channel, event["type"],
-                    channel.upper(), event["action"]))
+        # for event in events:
+        #     engine.input.register_callback(self, button=event["button"],
+        #         cmd="pactl set-{}-{} @DEFAULT_{}@ {}".format(channel, event["type"],
+        #             channel.upper(), event["action"]))
 
     def mute(self, value):
         self._mute = value

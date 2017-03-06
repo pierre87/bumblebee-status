@@ -16,9 +16,9 @@ class Module(bumblebee.engine.Module):
         super(Module, self).__init__(engine, config,
             bumblebee.output.Widget(full_text=self.caffeine)
         )
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd=self._toggle
-        )
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd=self._toggle
+        # )
 
     def caffeine(self, widget):
         return ""

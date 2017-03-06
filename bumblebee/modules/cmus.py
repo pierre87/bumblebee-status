@@ -29,16 +29,16 @@ class Module(bumblebee.engine.Module):
         ]
         super(Module, self).__init__(engine, config, widgets)
 
-        engine.input.register_callback(widgets[0], button=bumblebee.input.LEFT_MOUSE,
-            cmd="cmus-remote -r")
-        engine.input.register_callback(widgets[1], button=bumblebee.input.LEFT_MOUSE,
-            cmd="cmus-remote -u")
-        engine.input.register_callback(widgets[2], button=bumblebee.input.LEFT_MOUSE,
-            cmd="cmus-remote -n")
-        engine.input.register_callback(widgets[3], button=bumblebee.input.LEFT_MOUSE,
-            cmd="cmus-remote -S")
-        engine.input.register_callback(widgets[4], button=bumblebee.input.LEFT_MOUSE,
-            cmd="cmus-remote -R")
+        # engine.input.register_callback(widgets[0], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="cmus-remote -r")
+        # engine.input.register_callback(widgets[1], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="cmus-remote -u")
+        # engine.input.register_callback(widgets[2], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="cmus-remote -n")
+        # engine.input.register_callback(widgets[3], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="cmus-remote -S")
+        # engine.input.register_callback(widgets[4], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="cmus-remote -R")
 
         self._fmt = self.parameter("format", "{artist} - {title} {position}/{duration}")
         self._status = None

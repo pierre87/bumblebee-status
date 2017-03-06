@@ -17,6 +17,7 @@ class Widget(bumblebee.store.Store):
         self._module = None
         self.name = name
         self.id = str(uuid.uuid4())
+        self.collapsed = False
 
     def link_module(self, module):
         """Set the module that spawned this widget
@@ -69,6 +70,11 @@ class I3BarOutput(object):
             full_text = u"{}{}".format(prefix, full_text)
         if suffix:
             full_text = u"{}{}".format(full_text, suffix)
+        if widget.collapsed:
+            if prefix:
+                full_text = prefix
+            else:
+                full_text = "\uf17c"
         separator = self._theme.separator(widget)
         if separator:
             self._widgets.append({

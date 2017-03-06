@@ -14,6 +14,8 @@ class Module(bumblebee.engine.Module):
             bumblebee.output.Widget(full_text=self.output)
         )
         self._release_name = platform.release()
+        for w in self.widgets():
+            w.collapsed = True
 
     def output(self, widget):
         return self._release_name
