@@ -15,7 +15,7 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.utilization)
+            bumblebee.output.Widget(full_text=self.utilization, tag="cpu")
         )
         self._utilization = psutil.cpu_percent(percpu=False)
         # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,

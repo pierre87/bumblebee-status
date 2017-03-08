@@ -25,7 +25,8 @@ def default_format(module):
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.get_time)
+            bumblebee.output.Widget(full_text=self.get_time),
+            collapsible=False
         )
         self._fmt = self.parameter("format", default_format(self.name))
 

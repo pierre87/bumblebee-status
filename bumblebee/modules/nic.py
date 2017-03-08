@@ -74,6 +74,7 @@ class Module(bumblebee.engine.Module):
                 widget = bumblebee.output.Widget(name=intf)
                 widgets.append(widget)
             widget.full_text("{} {} {}".format(intf, state, ", ".join(addr)))
+            widget.tag = "wifi" if self._iswlan(intf) else "eth"
             widget.set("intf", intf)
             widget.set("state", state)
             widget.set("visited", True)

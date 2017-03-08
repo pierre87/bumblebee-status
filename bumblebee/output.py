@@ -10,14 +10,15 @@ import bumblebee.store
 
 class Widget(bumblebee.store.Store):
     """Represents a single visible block in the status bar"""
-    def __init__(self, full_text="", name=""):
+    def __init__(self, full_text="", name="", tag="000"):
         super(Widget, self).__init__()
         self._full_text = full_text
         self.module = None
         self._module = None
         self.name = name
         self.id = str(uuid.uuid4())
-        self.collapsed = False
+        self.collapsed = True
+        self.tag = tag
 
     def link_module(self, module):
         """Set the module that spawned this widget
@@ -26,6 +27,8 @@ class Widget(bumblebee.store.Store):
         pass in the module name in every concrete module implementation"""
         self.module = module.name
         self._module = module
+        if not module.collapsible:
+            self.collapsed = False
 
     def state(self):
         """Return the widget's state"""
@@ -62,19 +65,17 @@ class I3BarOutput(object):
 
     def draw(self, widget, module=None, engine=None):
         """Draw a single widget"""
-        full_text = widget.full_text()
-        padding = self._theme.padding(widget)
-        prefix = self._theme.prefix(widget, padding)
-        suffix = self._theme.suffix(widget, padding)
-        if prefix:
-            full_text = u"{}{}".format(prefix, full_text)
-        if suffix:
-            full_text = u"{}{}".format(full_text, suffix)
         if widget.collapsed:
+            full_text = widget.tag
+        else:
+            full_text = widget.full_text()
+            padding = self._theme.padding(widget)
+            prefix = self._theme.prefix(widget, padding)
+            suffix = self._theme.suffix(widget, padding)
             if prefix:
-                full_text = prefix
-            else:
-                full_text = "\uf17c"
+                full_text = u"{}{}".format(prefix, full_text)
+            if suffix:
+                full_text = u"{}{}".format(full_text, suffix)
         separator = self._theme.separator(widget)
         if separator:
             self._widgets.append({

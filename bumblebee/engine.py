@@ -25,15 +25,16 @@ class Module(object):
     (e.g. CPU utilization, disk usage, etc.) derive from
     this base class.
     """
-    def __init__(self, engine, config={}, widgets=[]):
+    def __init__(self, engine, config={}, widgets=[], collapsible=True):
         self.name = config.get("name", self.__module__.split(".")[-1])
         self._config = config
         self.id = self.name
         self._widgets = []
+        self.collapsible = collapsible
         if widgets:
             self._widgets = widgets if isinstance(widgets, list) else [widgets]
-
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE, cmd=self.toggle_collapse)
+        if self.collapsible:
+            engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE, cmd=self.toggle_collapse)
 
     def widgets(self):
         """Return the widgets to draw for this module"""

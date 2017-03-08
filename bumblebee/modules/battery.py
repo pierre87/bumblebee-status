@@ -17,7 +17,7 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.capacity)
+            bumblebee.output.Widget(full_text=self.capacity, tag="bat")
         )
         battery = self.parameter("device", "BAT0")
         self._path = "/sys/class/power_supply/{}".format(battery)

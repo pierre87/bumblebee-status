@@ -51,7 +51,7 @@ def get_dnf_info(widget):
 
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
-        widget = bumblebee.output.Widget(full_text=self.updates)
+        widget = bumblebee.output.Widget(full_text=self.updates, tag="dnf")
         super(Module, self).__init__(engine, config, widget)
 
         self._next_check = 0

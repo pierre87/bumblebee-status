@@ -17,15 +17,16 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.layout)
+            bumblebee.output.Widget(full_text=self.layout),
+            collapsible=False
         )
         self._languages = self.parameter("lang", "us").split("|")
         self._idx = 0
 
-        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-        #     cmd=self._next_keymap)
-        # engine.input.register_callback(self, button=bumblebee.input.RIGHT_MOUSE,
-        #     cmd=self._prev_keymap)
+        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+            cmd=self._next_keymap)
+        engine.input.register_callback(self, button=bumblebee.input.RIGHT_MOUSE,
+            cmd=self._prev_keymap)
 
     def _next_keymap(self, event):
         self._idx = (self._idx + 1) % len(self._languages)

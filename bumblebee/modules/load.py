@@ -17,7 +17,7 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.load)
+            bumblebee.output.Widget(full_text=self.load, tag="load")
         )
         self._load = [0, 0, 0]
         try:
