@@ -22,12 +22,12 @@ class Module(bumblebee.engine.Module):
         ]
         super(Module, self).__init__(engine, config, widgets)
 
-        engine.input.register_callback(widgets[0], button=bumblebee.input.LEFT_MOUSE,
-            cmd="playerctl previous")
-        engine.input.register_callback(widgets[1], button=bumblebee.input.LEFT_MOUSE,
-             cmd="playerctl play-pause")
-        engine.input.register_callback(widgets[2], button=bumblebee.input.LEFT_MOUSE,
-             cmd="playerctl next")
+        # engine.input.register_callback(widgets[0], button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="playerctl previous")
+        # engine.input.register_callback(widgets[1], button=bumblebee.input.LEFT_MOUSE,
+        #      cmd="playerctl play-pause")
+        # engine.input.register_callback(widgets[2], button=bumblebee.input.LEFT_MOUSE,
+        #      cmd="playerctl next")
 
         self._status = None
         self._tags = None

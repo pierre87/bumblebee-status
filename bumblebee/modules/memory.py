@@ -17,11 +17,11 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.memory_usage)
+            bumblebee.output.Widget(full_text=self.memory_usage, tag="mem")
         )
         self._mem = psutil.virtual_memory()
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="gnome-system-monitor")
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="gnome-system-monitor")
 
     def memory_usage(self, widget):
         used = self._mem.total - self._mem.available

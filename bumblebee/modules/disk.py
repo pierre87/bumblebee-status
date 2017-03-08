@@ -17,15 +17,15 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.diskspace)
+            bumblebee.output.Widget(full_text=self.diskspace,tag="disk")
         )
         self._path = self.parameter("path", "/")
         self._perc = 0
         self._used = 0
         self._size = 0
 
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="nautilus {}".format(self._path))
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="nautilus {}".format(self._path))
 
     def diskspace(self, widget):
         return "{} {}/{} ({:05.02f}%)".format(self._path,
@@ -40,6 +40,6 @@ class Module(bumblebee.engine.Module):
         self._perc = 100.0*self._used/self._size
 
     def state(self, widget):
-        return self.threshold_state(self._perc, 80, 90)
+        return self.threshold_state(self._perc, 85, 90)
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

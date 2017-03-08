@@ -17,7 +17,8 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.layout)
+            bumblebee.output.Widget(full_text=self.layout),
+            collapsible=False
         )
         self._languages = self.parameter("lang", "us").split("|")
         self._idx = 0

@@ -17,15 +17,15 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.load)
+            bumblebee.output.Widget(full_text=self.load, tag="load")
         )
         self._load = [0, 0, 0]
         try:
             self._cpus = multiprocessing.cpu_count()
         except NotImplementedError as e:
             self._cpus = 1
-        engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
-            cmd="gnome-system-monitor")
+        # engine.input.register_callback(self, button=bumblebee.input.LEFT_MOUSE,
+        #     cmd="gnome-system-monitor")
 
     def load(self, widget):
         return "{:.02f}/{:.02f}/{:.02f}".format(

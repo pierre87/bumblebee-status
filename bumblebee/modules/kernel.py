@@ -11,9 +11,11 @@ import bumblebee.engine
 class Module(bumblebee.engine.Module):
     def __init__(self, engine, config):
         super(Module, self).__init__(engine, config,
-            bumblebee.output.Widget(full_text=self.output)
+            bumblebee.output.Widget(full_text=self.output,tag="kernel")
         )
         self._release_name = platform.release()
+        for w in self.widgets():
+            w.collapsed = True
 
     def output(self, widget):
         return self._release_name
