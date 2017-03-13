@@ -1,0 +1,40 @@
+{
+  "icons": [ "awesome-fonts"],
+  "defaults": {
+    "separator-block-width": 0,
+    "default_separators": false,
+    "critical": {
+      "fg": "#bf1111"
+    },
+    "warning": {
+      "fg": "bfbf11"
+    }
+  },
+  "cycle": [
+    {
+      "fg": "#000000",
+      "bg": "#62b662"
+    },
+    {
+      "fg": "#000000",
+      "bg": "#939354"
+    },
+    {
+      "fg": "#000000",
+      "bg": "#b66262"
+    },
+    {
+      "fg": "#000000",
+      "bg": "#935493"
+    },
+    {
+      "fg": "#000000",
+      "bg": "#6262b6"
+    },
+    {
+      "fg": "#000000",
+      "bg": "#549393"
+    }
+  ]
+}
+
