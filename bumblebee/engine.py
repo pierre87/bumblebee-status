@@ -72,10 +72,11 @@ class Module(object):
 
     def toggle_collapse(self, widget):
         for w in self.widgets():
-            if w.collapsed:
-                w.collapsed = False
-            else:
-                w.collapsed = True
+            if widget["instance"] == w.id:
+                if w.collapsed:
+                    w.collapsed = False
+                else:
+                    w.collapsed = True
 
 
 class Engine(object):
