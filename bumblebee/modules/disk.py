@@ -35,8 +35,8 @@ class Module(bumblebee.engine.Module):
 
     def update(self, widgets):
         st = os.statvfs(self._path)
-        self._size = st.f_frsize*st.f_blocks
-        self._used = self._size - st.f_frsize*st.f_bavail
+        self._size = st.f_blocks * st.f_frsize
+        self._used = (st.f_blocks - st.f_bfree) * st.f_frsize
         self._perc = 100.0*self._used/self._size
 
     def state(self, widget):
